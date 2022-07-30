@@ -21,7 +21,7 @@ CREATE TABLE transactions (
 	id SERIAL PRIMARY KEY,
 	"bankAccountId" INTEGER NOT NULL REFERENCES "bankAccount"("id"),
 	amount INTEGER NOT NULL,
-	"type" "transactionsType",
+	"type" "transactionsTypes",
 	"time" TIMESTAMP NOT NULL DEFAULT NOW(),
 	"description" TEXT NOT NULL,
 	"cancelled" BOOLEAN NOT NULL DEFAULT FALSE
@@ -60,7 +60,7 @@ CREATE TABLE "cities" (
 );
 
 CREATE TABLE "customerAddresses" (
-	id,
+	id SERIAL PRIMARY KEY,
 	"customerId" INTEGER UNIQUE NOT NULL REFERENCES "customers"("id"),
 	"street" TEXT NOT NULL,
 	"number" INTEGER NOT NULL,
